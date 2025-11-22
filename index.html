@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tokenized KYC Prototype</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1>🔐 Janseva KYC</h1>
+            <p class="lead">Simulated demo — wallet, KYC, token, consent & verification</p>
+        </header>
+
+        <!-- STEP 1: Connect Wallet -->
+        <section class="card">
+            <h2>Step 1 — Connect Wallet</h2>
+            <div class="row">
+                <button class="btn" id="connectWalletBtn">Connect Wallet</button>
+                <p class="status" id="walletStatus">Status: ❌ Not connected</p>
+            </div>
+        </section>
+
+        <!-- STEP 2: Submit KYC -->
+        <section class="card">
+            <h2>Step 2 — Submit KYC</h2>
+
+            <label for="name">Full name</label>
+            <input class="input" id="name" type="text" placeholder="e.g. Peter Parker">
+
+            <label for="idNumber">Govt ID (Aadhaar / PAN)</label>
+            <input class="input" id="idNumber" type="text" placeholder="e.g. 1234-XXXX-XXXX">
+
+            <label for="kycFile">Upload ID (image/pdf)</label>
+            <input class="input" id="kycFile" type="file" accept="image/*,.pdf">
+
+            <div class="row">
+                <button class="btn" id="submitKycBtn">Submit KYC</button>
+                <p class="status" id="kycStatus">Status: 🕒 Waiting</p>
+            </div>
+        </section>
+
+        <!-- STEP 3: Generate Token -->
+        <section class="card">
+            <h2>Step 3 — Generate Token</h2>
+            <div class="row">
+                <button class="btn" id="generateTokenBtn">Generate Token</button>
+            </div>
+
+            <div id="tokenBox" class="tokenBox hidden">
+                <p><strong>Token ID:</strong> <span id="tokenID">—</span></p>
+                <p><strong>Owner:</strong> <span id="tokenOwner">—</span></p>
+                <p><strong>Issued:</strong> <span id="tokenIssued">—</span></p>
+                <p><strong>Status:</strong> <span id="tokenStatus">—</span></p>
+            </div>
+        </section>
+
+        <!-- STEP 4: Consent -->
+        <section class="card">
+            <h2>Step 4 — Manage Consent</h2>
+            <label><input type="checkbox" id="bankA"> ICICI Bank</label><br>
+            <label><input type="checkbox" id="appB"> SBI</label><br>
+            <label><input type="checkbox" id="insuranceC"> HDFC Bank</label><br>
+
+            <p class="status" id="consentStatus">Allowed Access: None</p>
+        </section>
+
+        <!-- STEP 5: Verify -->
+        <section class="card">
+            <h2>Step 5 — Verify Token</h2>
+            <input class="input" id="verifyInput" type="text" placeholder="Enter token ID to verify">
+            <div class="row" style="margin-top:10px;">
+                <button class="btn" id="verifyBtn">Verify</button>
+                <p class="status" id="verifyStatus"></p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <small>Prototype — simulated token. No real PII or blockchain used.</small>
+        </footer>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
